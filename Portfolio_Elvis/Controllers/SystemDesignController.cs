@@ -8,22 +8,12 @@ namespace Portfolio_Elvis.Controllers
 {
     /// <summary>
     /// Created by: shreelvi
-    /// Date created: 05/09/2019
-    /// Controls the Content Writing menu in home page
+    /// Date created: 05/10/2019
+    /// Controls the System and Database Design menu in home page
     /// </summary>
-    public class BlogController : Controller
+    public class SystemDesignController : Controller
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult SuperWiFi()
-        {
-            return View();
-        }
-
-        public IActionResult VCS()
         {
             return View();
         }
