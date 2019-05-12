@@ -3,92 +3,144 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Content Writing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta name="description" content="Portfolio webpage of Vinay Somawat" />
+    <meta name="keywords" content="portfolio,website,personal website,github,projects,computer science and engineering" />
+    <meta name="author" content="Vinay Somawat" />
 
-body {
-  background-color: #f1f1f1;
-  padding: 20px;
-  font-family: Arial;
-}
 
- Center website 
-.main {
-  max-width: 1000px;
-  margin: auto;
-}
 
-h1 {
-  font-size: 50px;
-  word-break: break-all;
-}
+    <!--quora icon-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-.row {
-  margin: 8px -16px;
-}
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="kisspng-wechat-avatar-icon-line-v-word-5a715fe8a66dc6.6173848315173795606817.png">
+    <link rel="icon" type="image/png" href="kisspng-wechat-avatar-icon-line-v-word-5a715fe8a66dc6.6173848315173795606817.png">
 
-/* Add padding BETWEEN each column */
-.row,
-.row > .column {
-  padding: 8px;
-}
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 
-/* Create four equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 25%;
-}
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="css/flexslider.css">
+    <!-- Flaticons  -->
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    
+    @*Create a portfolio website tutorial
+    https://www.w3schools.com/howto/howto_css_portfolio_gallery.asp*@
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-/* Clear floats after rows */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        body {
+            background-color: #f1f1f1;
+            padding: 20px;
+            font-family: Arial;
+        }
 
-/* Content */
-.content {
-  background-color: white;
-  padding: 10px;
-}
+        /* Center website */
+        .main {
+            max-width: 1000px;
+            margin: 0px 0px 0px 400px;
+        }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@@media screen and (max-width: 900px) {
-  .column {
-    width: 50%;
-  }
-}
+        h1 {
+            font-size: 50px;
+            word-break: break-all;
+        }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
-}
+        .row {
+            margin: 8px -16px;
+        }
+            /* Add padding BETWEEN each column */
+            .row,
+            .row > .column {
+                padding: 8px;
+            }
+
+        /* Create four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 40%;
+        }
+
+        /* Clear floats after rows */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Content */
+        .content {
+            background-color: white;
+            padding: 10px;
+        }
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @@media screen and (max-width: 900px) {
+            .column {
+                width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @@media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
     </style>
+
 </head>
 <body>
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+    <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+        <div class="text-center">
+            <div class="author-img" style="background-image: url(images/Profile.PNG);"></div>
+            <h1 id="colorlib-logo"><a href="https://vinaysomawat.github.io">Elvis Shrestha</a></h1>
+            <p><strong>BBA Business Informatics, 2019 | ISU Pocatello</strong></p><br>
+            <p><strong>Connect me at:</strong></p>
+            <a href="https://twitter.com/elvis_shrestha" class="fa fa-twitter" target="_blank"></a>
+            <a href="mailto:elvishrestha@gmail.com" class="fa fa-google" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/elvis-shrestha-12a85b106/" class="fa fa-linkedin" target="_blank"></a>
+            <div class="colorlib-footer">
+                @*<h3><strong><a href="https://www.quora.com/profile/Vinay-Somawat"><i class="fa fa-quora"></i>uora</a></strong></h3>*@
+            </div>
+        </div>
+    </aside>
+
 
     <!-- MAIN (Center website) -->
     <div class="main">
 
-        <h1>MYLOGO.COM</h1>
         <hr>
-
-        <h2>PORTFOLIO</h2>
-        <p>Resize the browser window to see the responsive effect.</p>
+        <h2>Database Design Projects</h2>
 
         <!-- Portfolio Gallery Grid -->
         <div class="row">
             <div class="column">
-                <div class="blog-entry">
-                    <a href="SuperWiFi" class="blog-img"><img src="~/images/Version.png" alt="Mountains" style="width:100%"></a>
+                <div class="content">
+                    <a href="SuperWiFi" class="blog-img"><img src="~/images/Version.png" alt="Wind River Project" style="width:100%"></a>
                     <h3>My Work</h3>
                     <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
                 </div>
@@ -100,30 +152,42 @@ h1 {
                     <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
                 </div>
             </div>
-            <div class="column">
-                <div class="content">
-                    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-                    <h3>My Work</h3>
-                    <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+            @*<div class="column">
+                    <div class="content">
+                        <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+                        <h3>My Work</h3>
+                        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-                <div class="content">
-                    <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
-                    <h3>My Work</h3>
-                    <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                </div>
-            </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+                        <h3>My Work</h3>
+                        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                    </div>
+                </div>*@
             <!-- END GRID -->
         </div>
+        <hr>
+        <h2>System and Design Projects</h2>
 
-        <div class="content">
-            <img src="/w3images/p3.jpg" alt="Bear" style="width:100%">
-            <h3>Some Other Work</h3>
-            <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-            <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+            <div class="column">
+                <div class="blog-entry">
+                    <a href="SuperWiFi" class="blog-img"><img src="~/images/Version.png" alt="Wind River Project" style="width:100%"></a>
+                    <h3>My Work</h3>
+                    <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+                    <h3>My Work</h3>
+                    <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                </div>
+            </div>
         </div>
-
         <!-- END MAIN -->
     </div>
 
