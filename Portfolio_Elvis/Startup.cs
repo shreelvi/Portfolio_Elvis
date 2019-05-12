@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio_Elvis.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace Portfolio_Elvis
 {
@@ -58,7 +60,14 @@ namespace Portfolio_Elvis
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); // For the wwwroot folder
+            //To render static files from MyStaticFiles folder to the browser as request by 'MyStaticFiles'
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "MyStaticFiles")),
+                RequestPath = "/StaticFiles"
+            });
             app.UseCookiePolicy();
 
             app.UseAuthentication();
