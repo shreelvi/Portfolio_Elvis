@@ -44,7 +44,9 @@
 
     <style type="text/css">
         body {
-            font-family: sans-serif;
+            font-family: "Quicksand", Arial, sans-serif;
+            font-weight: 400;
+            font-size: 15px;
         }
 
         h1 {
@@ -111,7 +113,7 @@
     </style>
     <article>
         <br /><br />
-        <h1>System Design and Analysis: Wind Riders of the Lost River Range(WRLRR) Project</h1>
+        <h2>System Design and Analysis: Wind Riders of the Lost River Range(WRLRR) Project</h2>
         <p><strong>Author:</strong> Elvis, <strong>Date Posted:</strong> 05/11/2019</p>
 
         <p>Through out the semester, we worked in a group for the class INFO 3307: System Analysis and Design, we completed a project that demonstrates system designing concepts. Here, I am posting mostly work that were done by me.</p>
@@ -123,13 +125,12 @@
 
         <br />
 
-        <h2>Executive Summary:</h2>
+        <h3>Executive Summary:</h3>
         @*<div>
             <img src="http://peoplecancode-public.s3.amazonaws.com/cat.jpg">
         </div>*@
 
         <p>
-            <strong>Goals</strong><br />
             The Wind Riders of the Lost River Range (WRLRR) sales and customer base has been growing
             following the booming market for free-flight sporting equipment in the central Idaho. In the past
             decade, the company has doubled its sales revenue. With this constant growth in business makes
@@ -140,11 +141,7 @@
         </p>
         <a asp-action="SysProject1_Summary" asp-controller="SystemDesign" target="_blank">Read more</a>
 
-        <h2>Introduction: Company Background</h2>
-        @*<div>
-            <img src="http://peoplecancode-public.s3.amazonaws.com/cat.jpg">
-        </div>*@
-
+        <h3>Introduction: </h3>
         <p>
             Lost River Winder Riders, a free-flight sports shop in central Idaho, opened in 1990 to sell and
             service hang gliding, paragliding, and snow kiting equipment. The company started as a co-op to
@@ -154,6 +151,27 @@
             business while still doing what they loved.
         </p>
         <a asp-action="SysProject1_Intro" asp-controller="SystemDesign" target="_blank">Read more</a>
+
+        <h3>Functional Decomposition(Analysis) of Current System:</h3>
+        <strong>Summary of all Business Functions:</strong>
+        <ul>
+            <li>Customer purchases equipment</li>
+            <li>Generate purchase agreement</li>
+            <li>Customer returns defective/unwanted equipment</li>
+            <li>Customer requests equipment service or maintenance</li>
+            <li>Generate service agreement</li>
+            <li>Generate service detail report</li>
+            <li>Process returned inventory</li>
+            <li>Generate current equipment inventory report</li>
+            <li>Order new inventory (equipment)</li>
+            <li>Process new inventory</li>
+            <li>Generate sales report</li>
+            <li>Generate salesperson sales/commission report</li>
+            <li>Generate service summary report</li>
+            <li>Generate technician service report</li>
+
+        </ul>
+        <strong>Consolidation (Grouping) of Business Functions:</strong>
 
     </article>
 </body>
