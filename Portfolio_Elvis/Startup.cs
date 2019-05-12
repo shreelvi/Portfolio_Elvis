@@ -12,8 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio_Elvis.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using System.IO;
 
 namespace Portfolio_Elvis
 {
@@ -60,8 +58,7 @@ namespace Portfolio_Elvis
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles(); // For the wwwroot folder
-            
+            app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
