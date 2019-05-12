@@ -28,5 +28,11 @@ namespace Portfolio_Elvis.Controllers
         {
             return View();
         }
+
+        //To display introduction of project1 in seperate page
+        public IActionResult SysProject1_Intro()
+        {
+            return View();
+        }
     }
 }
