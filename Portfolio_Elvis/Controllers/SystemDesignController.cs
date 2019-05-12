@@ -17,5 +17,10 @@ namespace Portfolio_Elvis.Controllers
         {
             return View();
         }
+
+        public IActionResult SysProject1()
+        {
+            return View();
+        }
     }
 }
