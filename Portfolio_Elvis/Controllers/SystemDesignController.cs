@@ -22,5 +22,11 @@ namespace Portfolio_Elvis.Controllers
         {
             return View();
         }
+
+        //To display executive summary of project1
+        public IActionResult SysProject1_Summary()
+        {
+            return View();
+        }
     }
 }
