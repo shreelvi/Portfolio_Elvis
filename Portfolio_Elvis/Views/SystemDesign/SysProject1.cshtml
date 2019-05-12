@@ -118,14 +118,14 @@
 
         <p>Through out the semester, we worked in a group for the class INFO 3307: System Analysis and Design, we completed a project that demonstrates system designing concepts. Here, I am posting mostly work that were done by me.</p>
         <p>The project was imaginary and about a company that specializes in outdoor equipments renting and selling. More information in the Introduction section.</p>
-        
+
         <p style="color:darkorange">Please view the user requirements to understand the WRLRR System.</p>
         <a href="~/MyStaticFiles/WRLR_Requirement_Current.pdf" target="_blank"><p>Current System Description (Requirements)</p></a>
         <a href="~/MyStaticFiles/WRLR_Requirement_Future.pdf" target="_blank"><p>Future System Description (Requirements)</p></a>
 
         <br />
 
-        <h3>Executive Summary:</h3>
+        <h3>1. Executive Summary:</h3>
         @*<div>
             <img src="http://peoplecancode-public.s3.amazonaws.com/cat.jpg">
         </div>*@
@@ -141,7 +141,7 @@
         </p>
         <a asp-action="SysProject1_Summary" asp-controller="SystemDesign" target="_blank">Read more</a>
 
-        <h3>Introduction: </h3>
+        <h3>2. Introduction: </h3>
         <p>
             Lost River Winder Riders, a free-flight sports shop in central Idaho, opened in 1990 to sell and
             service hang gliding, paragliding, and snow kiting equipment. The company started as a co-op to
@@ -152,7 +152,7 @@
         </p>
         <a asp-action="SysProject1_Intro" asp-controller="SystemDesign" target="_blank">Read more</a>
 
-        <h3>Functional Decomposition(Analysis) of Current System:</h3>
+        <h3>3. Functional Decomposition(Analysis) of Current System:</h3>
         <strong>Summary of all Business Functions:</strong>
         <ul>
             <li>Customer purchases equipment</li>
@@ -171,7 +171,123 @@
             <li>Generate technician service report</li>
 
         </ul>
+
         <strong>Consolidation (Grouping) of Business Functions:</strong>
+        <ol>
+            <li>
+                Provide Customer Service/Handle Transactions
+                <ul>
+                    <li>
+                        Manage Purchase
+                        <ul>
+                            <li>Customer Verification</li>
+                            <li>Generate Purchase Agreement</li>
+                            <li>Equipment Sale</li>
+                            <li>Process Payment</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Manage Returns
+                        <ul>
+                            <li>Verify Purchase</li>
+                            <li>
+                                Check for Defectiveness
+                            </li>
+                            <li>Verify return time</li>
+                            <li>Receive Equipment</li>
+                            <li>Process Refund</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Manage Maintenance
+                        <ul>
+                            <li>Verify Customer Status</li>
+                            <li>Add Customer Information</li>
+                            <li>Update Customer Information</li>
+                            <li>Record Problem</li>
+                            <li>Estimate Time and Price</li>
+                            <li>Finalize Repair Service to Apply</li>
+                            <li>Record the Repair Service Applied</li>
+                            <li>Generate Service Entry Form</li>
+                            <li>Finalize Service Sale</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Maintain Inventory
+                <ul>
+                    <li>
+                        Order new inventory (equipment)
+                        <ul>
+                            <li>Run Inventory report (monthly)</li>
+                            <li>Compare reorder request</li>
+                            <li>Calculate total order price</li>
+                            <li>Manage orders according to the suppliers</li>
+                            <li>Finalize and send orders</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Process new inventory
+                    </li>
+                    <li>
+                        Process returned inventory
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Generate Reports
+                <ul>
+                    <li>
+                        Generate sales report
+                    </li>
+                    <li>
+                        Generate salesperson sales/commission report
+                    </li>
+                    <li>
+                        Generate technician service report
+                    </li>
+                    <li>
+                        Generate current inventory report
+                    </li>
+                    <li>
+                        Generate service summary report
+                    </li>
+                    <li>
+                        Process returned inventory
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>4. Logical Analysis of Current System</h3>
+
+        <strong>Data Flow Diagrams(DFD)</strong><br /><br />
+        <strong>Context Diagram:</strong>
+        <div>
+            <img src="~/images/ContextDiagram.jpg" style="width:500px">
+        </div><br />
+
+        <strong>Diagram 0:</strong>
+        <div>
+            <img src="~/images/Diagram0.jpg" style="width:500px">
+        </div><br /><br />
+
+        <strong>Level 1, Diagram 1:</strong><br />
+        <div>
+            <img src="~/images/L1D1.jpg" style="width:600px">
+        </div><br />
+
+        <strong>Level 1, Diagram 2:</strong>
+        <div>
+            <img src="~/images/L1D2.jpg" style="width:600px">
+        </div><br />
+
+        <strong>Level 1, Diagram 3:</strong>
+        <div>
+            <img src="~/images/L1D3.jpg" style="width:600px">
+        </div><br />
+
 
     </article>
 </body>
