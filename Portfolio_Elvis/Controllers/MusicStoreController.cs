@@ -18,12 +18,7 @@ namespace Portfolio_Elvis.Controllers
 
         public IActionResult Index()
         {
-            var genres = new List<Genre>
-            {
-                new Genre { Name = "Disco"},
-                new Genre { Name = "Jazz"},
-                new Genre { Name = "Rock"}
-            };
+            var genres = _context.Genres.ToList();
             return View(genres);
         }
 

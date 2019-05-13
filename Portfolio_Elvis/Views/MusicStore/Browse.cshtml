@@ -1,5 +1,6 @@
 ﻿@model Portfolio_Elvis.Models.Genre
 @{
-    ViewBag.Title = "Browse";
+    ViewData["Title"] = "Browse";
+    Layout = "~/Views/Shared/_LayoutMusicStore.cshtml";
 }
 <h2>Browsing Genre: @Model.Name</h2>

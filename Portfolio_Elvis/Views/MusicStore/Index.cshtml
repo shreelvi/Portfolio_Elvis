@@ -1,7 +1,8 @@
 ﻿
-@model IEnumerable<MvcMusicStore.Models.Genre>
+@model IEnumerable<Portfolio_Elvis.Models.Genre>
 @{
-    ViewBag.Title = "Store";
+    ViewData["Title"] = "Store";
+    Layout = "~/Views/Shared/_LayoutMusicStore.cshtml";
 }
 <h3>Browse Genres</h3>
 <p>
@@ -11,7 +12,10 @@
 <ul>
     @foreach (var genre in Model)
     {
-        <li>@genre.Name</li>
+    <li>
+        @Html.ActionLink(genre.Name,
+"Browse", new { genre = genre.Name })
+        </li>
     }
 </ul>
 

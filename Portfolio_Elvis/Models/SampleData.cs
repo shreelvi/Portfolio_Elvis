@@ -19,11 +19,11 @@ namespace Portfolio_Elvis.Models
             context.Database.EnsureCreated();
 
             // Look for any students.
-            if (context.Albums.Any())
-            {
-                return;   // DB has been seeded
-            }
-            var genres = new List<Genre>
+            //if (context.Albums.Any())
+            //{
+            //    return;   // DB has been seeded
+            //}
+            var genres = new Genre[]
             {
                 new Genre { Name = "Rock" },
                 new Genre { Name = "Jazz" },
@@ -36,8 +36,13 @@ namespace Portfolio_Elvis.Models
                 new Genre { Name = "Pop" },
                 new Genre { Name = "Classical" }
             };
+            foreach (Genre g in genres)
+            {
+                context.Genres.Add(g);
+            }
+            context.SaveChanges();
 
-            var artists = new List<Artist>
+            var artists = new Artist[]
             {
                 new Artist { Name = "Aaron Copland & London Symphony Orchestra" },
                 new Artist { Name = "Aaron Goldberg" },
@@ -189,8 +194,13 @@ namespace Portfolio_Elvis.Models
                 new Artist { Name = "Yo-Yo Ma" },
                 new Artist { Name = "Zeca Pagodinho" }
             };
+            foreach (Artist a in artists)
+            {
+                context.Artists.Add(a);
+            }
+            context.SaveChanges();
 
-            new List<Album>
+            var albums = new Album[]
             {
                 new Album { Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "Rock"), Price = 8.99M, Artist = artists.Single(a => a.Name == "Men At Work"), AlbumArtUrl = "/Content/Images/placeholder.gif" },
                 new Album { Title = "A Copland Celebration, Vol. I", Genre = genres.Single(g => g.Name == "Classical"), Price = 8.99M, Artist = artists.Single(a => a.Name == "Aaron Copland & London Symphony Orchestra"), AlbumArtUrl = "/Content/Images/placeholder.gif" },
@@ -438,7 +448,12 @@ namespace Portfolio_Elvis.Models
                 new Album { Title = "Bartok: Violin & Viola Concertos", Genre = genres.Single(g => g.Name == "Classical"), Price = 8.99M, Artist = artists.Single(a => a.Name == "Yehudi Menuhin"), AlbumArtUrl = "/Content/Images/placeholder.gif" },
                 new Album { Title = "Bach: The Cello Suites", Genre = genres.Single(g => g.Name == "Classical"), Price = 8.99M, Artist = artists.Single(a => a.Name == "Yo-Yo Ma"), AlbumArtUrl = "/Content/Images/placeholder.gif" },
                 new Album { Title = "Ao Vivo [IMPORT]", Genre = genres.Single(g => g.Name == "Latin"), Price = 8.99M, Artist = artists.Single(a => a.Name == "Zeca Pagodinho"), AlbumArtUrl = "/Content/Images/placeholder.gif" },
-            }.ForEach(a => context.Albums.Add(a));
+            };
+            foreach (Album a in albums)
+            {
+                context.Albums.Add(a);
+            }
+            context.SaveChanges();
         }
     }
 }
