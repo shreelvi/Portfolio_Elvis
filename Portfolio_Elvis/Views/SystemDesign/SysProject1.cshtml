@@ -116,7 +116,7 @@
         <h2>System Design and Analysis: Wind Riders of the Lost River Range(WRLRR) Project</h2>
         <p><strong>Author:</strong> Elvis, <strong>Date Posted:</strong> 05/11/2019</p>
 
-        <p>Through out the semester, we worked in a group for the class INFO 3307: System Analysis and Design, we completed a project that demonstrates system designing concepts. Here, I am posting mostly work that were done by me.</p>
+        <p>Through out the semester, we worked in a group for the class INFO 3307: System Analysis and Design and completed a project that demonstrates system designing concepts. Here, I am posting mostly work that were done by me.</p>
         <p>The project was imaginary and about a company that specializes in outdoor equipments renting and selling. More information in the Introduction section.</p>
 
         <p style="color:darkorange">Please view the user requirements to understand the WRLRR System.</p>
@@ -355,6 +355,257 @@
             <img src="~/images/DataStruct1.jpg" style="width:500px">
         </div><br /><br />
 
+        <h3>6. Partial System Structure Chart</h3>
+
+        <i>Return defective/unwanted equipment:</i>
+        <div>
+            <img src="~/images/PartialStructure1.png" style="width:500px">
+        </div><br /><br />
+        <i>Maintain inventory:</i>
+        <div>
+            <img src="~/images/PartialStructure2.png" style="width:500px">
+        </div><br /><br />
+
+        <h3>7. Process Specification</h3>
+        <strong>Structured English</strong><br /><br />
+        <strong><i>Generate Salesperson Report :</i></strong>
+        <p>
+            Retrieve the monthly sales report from Sales report file<br /><br />
+            Separate the salesperson information from the sold items report<br /><br />
+            Generate the monthly sales report for each salesperson<br /><br />
+            Update the salesperson information in employee file<br /><br />
+            Give salesperson the monthly report with the information of total items sold in the month
+        </p>
+        <strong><i>Check for Ordering New Inventory :</i></strong>
+        <p>
+            Get the current inventory records as of input from the inventory file<br /><br />
+            If (an item quantity &get; Minimum quantity to be present in stock<br /><br />
+            Order quantity needed to make the item quantity at optimum level<br /><br />
+            Else<br /><br />
+            Do not order the item
+        </p>
+        <strong><i>Customer Returns Defective/Unwanted Equipment :</i></strong>
+        <p>
+            Get the reason for returning the item<br /><br />
+            If the Customer is returning product because it is defective<br /><br />
+            Update the inventory file and send request for maintenance<br /><br />
+            Else<br /><br />
+            Update the inventory file and stock the product
+        </p>
+        <strong><i>Customer verification :</i></strong>
+        <p>
+            Get details of customers and check the information<br /><br />
+            If they are already in the system<br /><br />
+            Update that the information is verified<br /><br />
+            Else<br /><br />
+            Create the new customer
+        </p>
+        <strong><i>Process Returned Inventory:</i></strong>
+        <p>
+            Get the list of returned items from 1.2 as input<br /><br />
+            If the item is defective, send it to Suppliers<br /><br />
+            Else<br /><br />
+            Send it to inventory file<br /><br />
+        </p>
+        <strong><i>Process Payment:</i></strong>
+        <p>
+            Check if they made a payment or not<br /><br />
+            If you receive the payment from customer<br /><br />
+            Send the payment record to inventory file and provide the receipt to customer<br /><br />
+            Else<br /><br />
+            Ask for payment again
+
+        </p>
+
+        <h3>8. Functional Decomposition(Analysis) of Future System:</h3>
+        <strong>Summary of all Business Functions:</strong>
+        <ul>
+            <li>Customer purchases equipment</li>
+            <li>Generate purchase agreement</li>
+            <li>Customer returns defective/unwanted equipment</li>
+            <li>Customer requests equipment service or maintenance</li>
+            <li>Generate service agreement</li>
+            <li>Generate service detail report</li>
+            <li>Process returned inventory</li>
+            <li>Generate current equipment inventory report</li>
+            <li>Order new inventory (equipment)</li>
+            <li>Process new inventory</li>
+            <li>Generate sales report</li>
+            <li>Generate salesperson sales/commission report</li>
+            <li>Generate service summary report</li>
+            <li>Generate technician service report</li>
+            <li>Customer Enrolls in Training Session</li>
+            <li>Insure flight training service</li>
+            <li>Generate upcoming training schedule</li>
+            <li>Generate trainee list</li>
+            <li>Track trainee progress</li>
+            <li>Customer submits Introductory Tandem Experience reservation</li>
+            <li>Generate upcoming Introductory Tandem Experience reservations report</li>
+            <li>Generate monthly Introductory Tandem Experience report</li>
+        </ul>
+        <strong>Consolidation (Grouping) of Business Functions (Future System):</strong>
+        <ol>
+            <li>
+                Provide Customer Service/Handle Transactions
+                <ul>
+                    <li>
+                        Sell equipment to customer
+                        <ul>
+                            <li>Verify customer status</li>
+                            <li>Add customer information</li>
+                            <li>Update customer information</li>
+                            <li>Process Payment</li>
+                            <li>Process sale</li>
+                            <li>
+                                Process payment
+                                <ul>
+                                    <li>Scan credit card</li>
+                                    <li>Accept cash</li>
+                                    <li>Calculate tax</li>
+                                    <li>Generate total</li>
+                                    <li>Generate receipt</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Process customer returns
+                        <ul>
+                            <li>Verify Purchase</li>
+                            <li>
+                                Check for Defectiveness
+                            </li>
+                            <li>Verify return time</li>
+                            <li>Receive Equipment</li>
+                            <li>Process Refund</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Provide maintenance service
+                        <ul>
+                            <li>Verify Customer Status</li>
+                            <li>Add Customer Information</li>
+                            <li>Update Customer Information</li>
+                            <li>Record the problem to maintain</li>
+                            <li>Estimate time and Price</li>
+                            <li>Finalize repair service to apply</li>
+                            <li>Record the Repair Service Applied</li>
+                            <li>Generate Service Entry Form</li>
+                            <li>Finalize Service Sale</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Provide flight training services
+                        <ul>
+                            <li>
+                                Enroll customer in training
+                                <ul>
+                                    <li>Verify customer status</li>
+                                    <li>Verify customer eligibility</li>
+                                    <li>Process service sale</li>
+                                    <li>Finalize service and generate receipt</li>
+                                </ul>
+                            </li>
+                            <li>Obtain flight insurance</li>
+                            <li>Provide training schedule</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Provide tandem flight services
+                        <ul>
+                            <li>
+                                Initiate the flight service
+                                <ul>
+                                    <li>Verify customer status</li>
+                                    <li>Verify customer eligibility</li>
+                                    <li>Process service sale</li>
+                                    <li>Finalize service and generate receipt</li>
+                                </ul>
+                            </li>
+                            <li>Provide the tandem reservation reports</li>
+                            <li>Provide monthly tandem experience report</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Maintain Inventory
+                <ul>
+                    <li>
+                        Order new inventory (equipment)
+                        <ul>
+                            <li>Run Inventory report (monthly)</li>
+                            <li>Compare reorder request</li>
+                            <li>Calculate total order price</li>
+                            <li>Manage orders according to the suppliers</li>
+                            <li>Finalize and send orders</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Process new inventory
+                    </li>
+                    <li>
+                        Process returned inventory
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Generate Reports
+                <ul>
+                    <li>
+                        Generate sales report
+                    </li>
+                    <li>
+                        Generate salesperson sales/commission report
+                    </li>
+                    <li>
+                        Generate technician service report
+                    </li>
+                    <li>
+                        Generate current inventory report
+                    </li>
+                    <li>
+                        Generate service summary report
+                    </li>
+                    <li>
+                        Process returned inventory
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>9. Logical Analysis of Future System</h3>
+
+        <strong>Data Flow Diagrams(DFD)</strong><br /><br />
+        <strong>Context Diagram:</strong>
+        <div>
+            <img src="~/images/FutureContext.jpg" style="width:700px">
+        </div><br />
+
+        <strong>Diagram 0:</strong>
+        <div>
+            <img src="~/images/Diag0_Future.jpg" style="width:700px">
+        </div><br /><br />
+
+        <strong>Level 1, Diagram 1:</strong><br />
+        <div>
+            <img src="~/images/L1D1_future.jpg" style="width:800px">
+        </div><br />
+
+        <strong>Level 1, Diagram 2: </strong>
+        <div>
+            <img src="~/images/L1D2_future.jpg" style="width:500px">
+        </div><br />
+
+        <strong>Level 1, Diagram 3: </strong>
+        <div>
+            <img src="~/images/L1D3_future.jpg" style="width:600px">
+        </div><br />
+
+        <strong>Level 2, Diagram 1:</strong>
+        <div>
+            <img src="~/images/L2D1_future.jpg" style="width:600px">
+        </div><br />
     </article>
 </body>
 </html>
