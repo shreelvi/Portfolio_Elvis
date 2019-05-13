@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
 
 namespace Portfolio_Elvis.Models
 {
@@ -17,7 +16,7 @@ namespace Portfolio_Elvis.Models
     {
         public static void Initialize(MusicStoreContext context)
         {
-            context.Database.CreateIfNotExists();
+            context.Database.EnsureCreated();
 
             // Look for any students.
             if (context.Albums.Any())

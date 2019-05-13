@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,15 +14,13 @@ namespace Portfolio_Elvis.Models
     /// </summary>
     public class MusicStoreContext: DbContext
     {
-        public MusicStoreContext() : base("MusicStoreContext")
+        public MusicStoreContext(DbContextOptions<MusicStoreContext> options)
+            : base(options)
         {
         }
         public DbSet<Album> Albums { get; set; }
         public DbSet<Genre> Genres { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
+        
     }
 }
