@@ -13,6 +13,7 @@ namespace Portfolio_Elvis.Controllers
     /// Created by: Elvis
     /// Date Created: 05/13/2019
     /// CRUD actions for Music Store
+    /// https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
     /// </summary>
     public class MusicStoreManagerController : Controller
     {
