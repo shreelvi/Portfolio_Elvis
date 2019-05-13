@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Portfolio_Elvis.Model
+namespace Portfolio_Elvis.Models
 {
     public class IdentityContext : IdentityDbContext<IdentityUser>
     {

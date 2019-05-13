@@ -1,7 +1,4 @@
 ﻿
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 <html>
@@ -21,6 +18,8 @@
             @*<li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>*@
             <li><a href="@Url.Content("~/StoreManager/")">Admin</a></li>
         </ul>
+        <partial name="_LoginPartial" />
+
     </div>
 
     @*@{Html.RenderAction("GenreMenu", "Store");}*@
