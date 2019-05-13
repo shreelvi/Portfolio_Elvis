@@ -6,6 +6,13 @@ using System.Data.Entity;
 
 namespace Portfolio_Elvis.Models
 {
+    /// <summary>
+    /// Created by: Elvis
+    /// EF's feature allows us to automatically create, re-create or 
+    /// delete database
+    /// This class is used to use this EF feature and seed data to a newly added database
+    /// This will pre-populate our store catalog with a list of Genres, Artists, and Albums.
+    /// </summary>
     public class SampleData : DropCreateDatabaseIfModelChanges<MusicStoreContext>
     {
         protected override void Seed(MusicStoreContext context)

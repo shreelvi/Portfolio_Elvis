@@ -34,9 +34,12 @@ namespace Portfolio_Elvis
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //Register the SchoolContext
+            //https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-2.2
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
