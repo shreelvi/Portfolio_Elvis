@@ -13,10 +13,17 @@ namespace Portfolio_Elvis.Models
     /// This class is used to use this EF feature and seed data to a newly added database
     /// This will pre-populate our store catalog with a list of Genres, Artists, and Albums.
     /// </summary>
-    public class SampleData : DropCreateDatabaseIfModelChanges<MusicStoreContext>
+    public static class SampleData 
     {
-        protected override void Seed(MusicStoreContext context)
+        public static void Initialize(MusicStoreContext context)
         {
+            context.Database.CreateIfNotExists();
+
+            // Look for any students.
+            if (context.Albums.Any())
+            {
+                return;   // DB has been seeded
+            }
             var genres = new List<Genre>
             {
                 new Genre { Name = "Rock" },
