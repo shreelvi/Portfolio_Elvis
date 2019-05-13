@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio_Elvis.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Portfolio_Elvis.Models;
 
 namespace Portfolio_Elvis
 {
@@ -36,12 +37,12 @@ namespace Portfolio_Elvis
 
             //Register the SchoolContext
             //https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-2.2
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<MusicStoreContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
