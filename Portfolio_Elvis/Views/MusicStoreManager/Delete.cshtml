@@ -1,0 +1,52 @@
+﻿@model Portfolio_Elvis.Models.Album
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutMusicStore.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumArtUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AlbumArtUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Genre.GenreId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Artist.ArtistId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AlbumId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
