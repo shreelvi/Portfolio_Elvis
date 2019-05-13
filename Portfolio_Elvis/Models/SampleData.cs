@@ -19,10 +19,10 @@ namespace Portfolio_Elvis.Models
             context.Database.EnsureCreated();
 
             // Look for any students.
-            //if (context.Albums.Any())
-            //{
-            //    return;   // DB has been seeded
-            //}
+            if (context.Albums.Any())
+            {
+                return;   // DB has been seeded
+            }
             var genres = new Genre[]
             {
                 new Genre { Name = "Rock" },

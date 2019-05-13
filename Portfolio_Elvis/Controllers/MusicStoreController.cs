@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio_Elvis.Models;
 
 namespace Portfolio_Elvis.Controllers
@@ -30,7 +31,10 @@ namespace Portfolio_Elvis.Controllers
 
         public ActionResult Browse(string genre)
         {
-            var genreModel = new Genre { Name = genre };
+            // Retrieve Genre and its Associated Albums from database
+            var genreModel = _context.Genres.Include("Albums")
+                .Single(g => g.Name == genre);
+
             return View(genreModel);
         }
     }
