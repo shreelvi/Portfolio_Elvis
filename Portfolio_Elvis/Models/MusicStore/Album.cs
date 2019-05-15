@@ -15,6 +15,14 @@ namespace Portfolio_Elvis.Models
     /// </summary>
     public class Album
     {
+        //private readonly MusicStoreContext _context;
+        //private Genre _Genre;
+
+        //public Album(MusicStoreContext context)
+        //{
+        //    _context = context;
+        //}
+
         [ScaffoldColumn(false)]
         public int AlbumId { get; set; }
         [DisplayName("Genre")]
@@ -30,7 +38,9 @@ namespace Portfolio_Elvis.Models
         [DisplayName("Album Art URL")]
         [StringLength(1024)]
         public string AlbumArtUrl { get; set; }
-        public virtual Genre Genre { get; set; }
+        public virtual Genre Genre {
+            get; set; 
+        }
         public virtual Artist Artist { get; set; }
     }
 }

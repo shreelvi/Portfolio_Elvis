@@ -32,13 +32,30 @@ namespace Portfolio_Elvis.Controllers.MusicStore
         // GET: /ShoppingCart/
         public ActionResult Index()
         {
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            ShoppingCart cart = new ShoppingCart(_context);
+            cart = cart.GetCart(this.HttpContext);
+
             // Set up our ViewModel
             var viewModel = new ShoppingCartViewModel
             {
                 CartItems = cart.GetCartItems(),
                 CartTotal = cart.GetTotal()
             };
+
+            //Manually fills the album and its information of shopping cart items
+            for(int i = 0; i < viewModel.CartItems.Count; i++)
+            {
+
+                var aID = viewModel.CartItems[0].AlbumId;
+                var album = _context.Albums.Find(aID);
+                viewModel.CartItems[i].Album = album; //adds the album object to viewmodel cartitems
+
+                var genre = _context.Genres.Find(album.GenreId);
+                viewModel.CartItems[i].Album.Genre = genre;
+                var artist = _context.Artists.Find(album.ArtistId);
+                viewModel.CartItems[i].Album.Artist = artist;
+
+            }
             // Return the view
             return View(viewModel);
         }
@@ -51,7 +68,9 @@ namespace Portfolio_Elvis.Controllers.MusicStore
             var addedAlbum = _context.Albums
             .Single(album => album.AlbumId == id);
             // Add it to the shopping cart
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            ShoppingCart cart = new ShoppingCart(_context);
+            cart = cart.GetCart(HttpContext);
+            var a = addedAlbum.AlbumId;
             cart.AddToCart(addedAlbum);
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");
@@ -63,7 +82,8 @@ namespace Portfolio_Elvis.Controllers.MusicStore
         public ActionResult RemoveFromCart(int id)
         {
             // Remove the item from the cart
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            ShoppingCart cart = new ShoppingCart(_context);
+            cart = cart.GetCart(HttpContext);
             // Get the name of the album to display confirmation
             string albumName = _context.Carts
             .Single(item => item.RecordId == id).Album.Title;
@@ -85,7 +105,8 @@ namespace Portfolio_Elvis.Controllers.MusicStore
         // GET: /ShoppingCart/CartSummary
         public ActionResult CartSummary()
         {
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            ShoppingCart cart = new ShoppingCart(_context);
+            cart = cart.GetCart(HttpContext);
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
         }

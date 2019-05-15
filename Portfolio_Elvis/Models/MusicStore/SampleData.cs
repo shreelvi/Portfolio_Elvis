@@ -16,7 +16,7 @@ namespace Portfolio_Elvis.Models
     {
         public static void Initialize(MusicStoreContext context)
         {
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
 
             // Look for any students.
             if (context.Albums.Any())

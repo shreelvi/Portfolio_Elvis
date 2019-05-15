@@ -19,6 +19,7 @@ namespace Portfolio_Elvis.Models.MusicStore
         public int AlbumId { get; set; }
         public int Count { get; set; }
         public System.DateTime DateCreated { get; set; }
-        public virtual Album Album { get; set; }
+        public virtual Album Album { get; set; }
+
     }
 }

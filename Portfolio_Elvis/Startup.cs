@@ -41,7 +41,10 @@ namespace Portfolio_Elvis
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-   
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -64,6 +67,7 @@ namespace Portfolio_Elvis
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

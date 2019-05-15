@@ -19,6 +19,7 @@ namespace Portfolio_Elvis.Models
             : base(options)
         {
         }
+
         public DbSet<Album> Albums { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Genre> Genres { get; set; }
@@ -26,5 +27,17 @@ namespace Portfolio_Elvis.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        //// override the default behavior by specifying singular table names in the DbContext
+        //// https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-2.2
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Album>().ToTable("Album");
+        //    modelBuilder.Entity<Artist>().ToTable("Artist");
+        //    modelBuilder.Entity<Genre>().ToTable("Genre");
+        //    modelBuilder.Entity<Cart>().ToTable("Cart");
+        //    modelBuilder.Entity<Order>().ToTable("Order");
+        //    modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
+
+        //}
     }
 }

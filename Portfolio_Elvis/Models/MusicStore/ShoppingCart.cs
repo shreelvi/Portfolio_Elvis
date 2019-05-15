@@ -26,21 +26,21 @@ namespace Portfolio_Elvis.Models.MusicStore
             _context = context;
         }
 
-        public ShoppingCart()
-        {
-        }
+        //public ShoppingCart()
+        //{
+        //}
 
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
 
-        public static ShoppingCart GetCart(HttpContext context)
+        public ShoppingCart GetCart(HttpContext context)
         {
-            var cart = new ShoppingCart();
+            var cart = new ShoppingCart(_context);
             cart.ShoppingCartId = cart.GetCartId(context);
             return cart;
         }
-        // Helper method to simplify shopping cart calls
-        public static ShoppingCart GetCart(Controller controller)
+        //Helper method to simplify shopping cart calls
+        public  ShoppingCart GetCart(Controller controller)
         {
             return GetCart(controller.HttpContext);
         }
@@ -48,6 +48,10 @@ namespace Portfolio_Elvis.Models.MusicStore
         // AddToCart takes an Album as a parameter and adds it to the user’s cart
         public void AddToCart(Album album)
         {
+
+            var b = _context.Genres.Find(2);
+            var dc = _context.Carts.Find(1);
+
             // Get the matching cart and album instances
             var cartItem = _context.Carts.SingleOrDefault(
            c => c.CartId == ShoppingCartId

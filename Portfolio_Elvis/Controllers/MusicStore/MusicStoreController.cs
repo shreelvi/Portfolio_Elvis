@@ -25,7 +25,12 @@ namespace Portfolio_Elvis.Controllers
 
         public ActionResult Details(int id)
         {
-            var album = new Album { Title = "Album " + id };
+            var album = _context.Albums.Find(id);
+            var genre = _context.Genres.Find(album.GenreId);
+            album.Genre = genre;
+            var artist = _context.Artists.Find(album.ArtistId);
+            album.Artist = artist;
+
             return View(album);
         }
 
