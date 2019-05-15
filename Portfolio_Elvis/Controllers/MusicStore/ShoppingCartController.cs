@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Portfolio_Elvis.Models;
 using Portfolio_Elvis.Models.MusicStore;
 using Portfolio_Elvis.Models.MusicStore.ViewModels;
+using System.Text.Encodings.Web;
+
 
 namespace Portfolio_Elvis.Controllers.MusicStore
 {
@@ -63,15 +65,15 @@ namespace Portfolio_Elvis.Controllers.MusicStore
             // Remove the item from the cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
             // Get the name of the album to display confirmation
-            string albumName = storeDB.Carts
+            string albumName = _context.Carts
             .Single(item => item.RecordId == id).Album.Title;
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
             {
-                Message = Server.HtmlEncode(albumName) +
-            " has been removed from your shopping cart.",
+                Message = HtmlEncoder.Default.Encode(albumName) +
+                          " has been removed from your shopping cart.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
@@ -81,14 +83,11 @@ namespace Portfolio_Elvis.Controllers.MusicStore
         }
         //
         // GET: /ShoppingCart/CartSummary
-        [ChildActionOnly]
         public ActionResult CartSummary()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
         }
-    }
-}
     }
 }
