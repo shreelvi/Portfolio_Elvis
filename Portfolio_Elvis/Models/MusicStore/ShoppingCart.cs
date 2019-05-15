@@ -14,7 +14,8 @@ namespace Portfolio_Elvis.Models.MusicStore
     /// the Cart table
     /// Also handle the business logic to for adding and 
     /// removing items from the shopping 
-    /// https://web.csulb.edu/~pnguyen/cecs475/labs/mvc-music-store-tutorial-v30.pdfcart
+    /// Reference: https://web.csulb.edu/~pnguyen/cecs475/labs/mvc-music-store-tutorial-v30.pdfcart
+    /// Understood and used code from the reference 
     /// </summary>
     public class ShoppingCart
     {
@@ -201,5 +202,8 @@ namespace Portfolio_Elvis.Models.MusicStore
             _context.SaveChanges();
         }
     }
-}
+}
+
+
+
 
