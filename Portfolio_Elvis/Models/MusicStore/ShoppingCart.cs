@@ -43,6 +43,8 @@ namespace Portfolio_Elvis.Models.MusicStore
         {
             return GetCart(controller.HttpContext);
         }
+
+        // AddToCart takes an Album as a parameter and adds it to the user’s cart
         public void AddToCart(Album album)
         {
             // Get the matching cart and album instances
@@ -69,6 +71,8 @@ namespace Portfolio_Elvis.Models.MusicStore
             // Save changes
             _context.SaveChanges();
         }
+
+        // takes an Album ID and removes it from the user’s cart
         public int RemoveFromCart(int id)
         {
             // Get the cart
@@ -94,6 +98,7 @@ namespace Portfolio_Elvis.Models.MusicStore
             return itemCount;
         }
 
+        // EmptyCart removes all items from a user’s shopping cart
         public void EmptyCart()
         {
             var cartItems = _context.Carts.Where(cart => cart.CartId == ShoppingCartId);
@@ -105,11 +110,13 @@ namespace Portfolio_Elvis.Models.MusicStore
             _context.SaveChanges();
         }
 
+        // GetCartItems retrieves a list of CartItems for display or processing
         public List<Cart> GetCartItems()
         {
             return _context.Carts.Where(cart => cart.CartId == ShoppingCartId).ToList();
         }
 
+        // GetCount retrieves a the total number of albums a user has in their shopping cart
         public int GetCount()
         {
             // Get the count of each item in the cart and sum them up
@@ -120,6 +127,7 @@ namespace Portfolio_Elvis.Models.MusicStore
             return count ?? 0;
         }
 
+        // GetTotal calculates the total cost of all items in the cart
         public decimal GetTotal()
         {
             // Multiply album price by count of that album to get
@@ -131,6 +139,7 @@ namespace Portfolio_Elvis.Models.MusicStore
             return total ?? decimal.Zero;
         }
 
+        // CreateOrder converts the shopping cart to an order during the checkout phase
         public int CreateOrder(Order order)
         {
             decimal orderTotal = 0;
@@ -159,6 +168,7 @@ namespace Portfolio_Elvis.Models.MusicStore
             return order.OrderId;
         }
 
+        // GetCart is a static method which allows our controllers to obtain a cart object
         // We're using HttpContextBase to allow access to cookies.
         public string GetCartId(HttpContext context)
         {
