@@ -26,6 +26,7 @@ namespace Portfolio_Elvis
                 try
                 {
                     var context = services.GetRequiredService<MusicStoreContext>();
+                    //context.Database.EnsureCreated();
                     SampleData.Initialize(context);
                 }
                 catch (Exception ex)
