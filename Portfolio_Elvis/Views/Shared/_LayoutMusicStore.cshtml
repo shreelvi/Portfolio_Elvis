@@ -19,20 +19,15 @@
             <li><a href="@Url.Content("~/MusicStoreManager/")">Admin</a></li>
         </ul>
         <partial name="~/Views/Shared/_LoginPartial.cshtml" />
-
     </div>
 
-    @*@{Html.RenderAction("GenreMenu", "Store");}*@
-
+    <partial name="~/Views/MusicStore/GenreMenu.cshtml" />
     <div id="main">
         @RenderBody()
     </div>
-
     <div id="footer">
         built with <a href="http://asp.net/mvc">ASP.NET MVC</a>
     </div>
-
     @RenderSection("Scripts", required: false)
-
 </body>
 </html>

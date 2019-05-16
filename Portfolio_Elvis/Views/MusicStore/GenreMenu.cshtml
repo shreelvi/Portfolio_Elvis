@@ -1,12 +1,60 @@
 ﻿
-@model IEnumerable<Portfolio_Elvis.Models.Genre>
-
 <ul id="categories">
-    @foreach (var genre in Model)
-    {
-        <li>@Html.ActionLink(genre.Name,
-            "Browse", "Store",
-            new { Genre = genre.Name }, null)
-         </li>
-    }
+    @*Manually displaying genres because couldn't replace htmlrenderaction in core
+        fix this later*@
+    <li>
+        @Html.ActionLink("Rock",
+        "Browse", "MusicStore",
+        new { Genre = "Rock" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Jazz",
+        "Browse", "MusicStore",
+        new { Genre = "Jazz" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Metal",
+        "Browse", "MusicStore",
+        new { Genre = "Metal" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Alternative",
+        "Browse", "MusicStore",
+        new { Genre = "Alternative" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Disco",
+        "Browse", "MusicStore",
+        new { Genre = "Disco" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Blues",
+        "Browse", "MusicStore",
+        new { Genre = "Blues" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Latin",
+        "Browse", "MusicStore",
+        new { Genre = "Latin" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Reggae",
+        "Browse", "MusicStore",
+        new { Genre = "Reggae" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Pop",
+        "Browse", "MusicStore",
+        new { Genre = "Pop" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Classical",
+        "Browse", "MusicStore",
+        new { Genre = "Classical" }, null)
+    </li>
+    @*@foreach (var genre in Model)
+        {
+
+        }*@
 </ul>
+
