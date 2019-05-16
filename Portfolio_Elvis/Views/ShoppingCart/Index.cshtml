@@ -2,10 +2,11 @@
     code copied from https://web.csulb.edu/~pnguyen/cecs475/labs/mvc-music-store-tutorial-v30.pdf*@
 
 @model Portfolio_Elvis.Models.MusicStore.ViewModels.ShoppingCartViewModel
+
 @{
-    ViewBag.Title = "Shopping Cart";
+    ViewData["Title"] = "Shopping Cart";
+    Layout = "~/Views/Shared/_LayoutMusicStore.cshtml";
 }
-<script src="/Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
         // Document.ready -> link up remove event handler
@@ -21,7 +22,7 @@
                         if (data.ItemCount == 0) {
                             $('#row-' + data.DeleteId).fadeOut('slow');
                         } else {
-                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                            $('#item-count-' + data.DeletedId).text(data.ItemCount);
                         }
                         $('#cart-total').text(data.CartTotal);
                         $('#update-message').text(data.Message);
@@ -81,14 +82,14 @@
                 @item.Count
             </td>
             <td>
-                <form asp-action="RemoveFromCart">
+                @*<form asp-action="RemoveFromCart">
                     <input type="hidden" name="id" value="@item.RecordId" />
-                    <input type="submit" value="Remove from cart" class="btn btn-default" /> 
-                </form>
-                @*<a href="ShoppingCart/RemoveFromCart" class="RemoveLink" data-id="@item.RecordId">
-            Remove from
-            cart
-        </a>*@
+                    <input type="submit" value="Remove from cart" class="btn btn-default" />
+                </form>*@
+                <a href="#" class="RemoveLink" data-id="@item.RecordId">
+                        Remove from
+                        cart
+                    </a>
             </td>
         </tr>
     }
