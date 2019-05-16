@@ -38,7 +38,8 @@ namespace Portfolio_Elvis.Areas.Identity.Pages.Account
 
             cart.MigrateCart(UserName);
             HttpContext.Session.SetString(ShoppingCart.CartSessionKey, UserName);
-        }
+        }
+
 
         public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, MusicStoreContext context)
         {
