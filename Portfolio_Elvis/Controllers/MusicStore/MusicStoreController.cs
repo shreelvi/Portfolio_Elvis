@@ -42,5 +42,12 @@ namespace Portfolio_Elvis.Controllers
 
             return View(genreModel);
         }
+
+        // This action returns a list of Genres which will be displayed by the partial view
+        public ActionResult GenreMenu()
+        {
+            var genres = _context.Genres.ToList();
+            return PartialView(genres);
+        }
     }
 }
