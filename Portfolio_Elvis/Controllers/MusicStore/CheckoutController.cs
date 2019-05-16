@@ -10,6 +10,10 @@ using Portfolio_Elvis.Models.MusicStore;
 
 namespace Portfolio_Elvis.Controllers.MusicStore
 {
+    /// <summary>
+    /// Used to process address and payment information 
+    /// and checkout items.
+    /// </summary>
     [Authorize]
     public class CheckoutController : Controller
     {
