@@ -81,10 +81,14 @@
                 @item.Count
             </td>
             <td>
-                <a href="#" class="RemoveLink" data-id="@item.RecordId">
-                    Remove from
-                    cart
-                </a>
+                <form asp-action="RemoveFromCart">
+                    <input type="hidden" name="id" value="@item.RecordId" />
+                    <input type="submit" value="Remove from cart" class="btn btn-default" /> 
+                </form>
+                @*<a href="ShoppingCart/RemoveFromCart" class="RemoveLink" data-id="@item.RecordId">
+            Remove from
+            cart
+        </a>*@
             </td>
         </tr>
     }

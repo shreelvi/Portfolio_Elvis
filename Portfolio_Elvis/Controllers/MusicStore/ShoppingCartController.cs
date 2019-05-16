@@ -85,8 +85,10 @@ namespace Portfolio_Elvis.Controllers.MusicStore
             ShoppingCart cart = new ShoppingCart(_context);
             cart = cart.GetCart(HttpContext);
             // Get the name of the album to display confirmation
-            string albumName = _context.Carts
-            .Single(item => item.RecordId == id).Album.Title;
+            Cart c = _context.Carts.Find(id);
+            Album al = _context.Albums.Find(c.AlbumId);
+            string albumName = al.Title;
+
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
             // Display the confirmation message
