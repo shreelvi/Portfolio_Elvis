@@ -9,6 +9,11 @@
         width: 700px;
         background: url(/images/home-showcase.png) no-repeat;
     }
+
+    #albums{
+        width:100px;
+        height:70px;
+    }
 </style>
 <div id="promotion">
 </div>
@@ -19,7 +24,7 @@
         <li>
             <a href="@Url.Action("Details", "MusicStore",
                 new { id = album.AlbumId })">
-                <img alt="@album.Title" src="@album.AlbumArtUrl" />
+                <img id="albums" alt="@album.Title" src="@album.AlbumArtUrl" />
                 <span>@album.Title</span>
             </a>
         </li>

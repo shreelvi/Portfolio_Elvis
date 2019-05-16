@@ -25,7 +25,8 @@ namespace Portfolio_Elvis.Controllers
         {
             // Get most popular albums
             var albums = GetTopSellingAlbums(5);
-            return View(albums);        }
+            return View(albums);
+        }
 
         private List<Album> GetTopSellingAlbums(int count)
         {
