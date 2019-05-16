@@ -73,7 +73,7 @@ namespace Portfolio_Elvis
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=MusicStore}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
