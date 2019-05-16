@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Portfolio_Elvis.Models.MusicStore;
+using Portfolio_Elvis.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Portfolio_Elvis.Areas.Identity.Pages.Account
 {
@@ -17,6 +20,25 @@ namespace Portfolio_Elvis.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly MusicStoreContext _context;
+
+        /// <summary>
+        ///  maintain users shopping cart information between visits, so we
+        ///  will need to associate the shopping cart information with a user 
+        ///  when they complete registration or login
+        ///  this method is used for that
+        /// </summary>
+        /// <param name="UserName"></param>
+        private void MigrateShoppingCart(string UserName)
+        {
+            ShoppingCart cart = new ShoppingCart(_context);
+
+            // Associate shopping cart items with logged-in user
+            cart.GetCart(this.HttpContext);
+
+            cart.MigrateCart(UserName);
+            HttpContext.Session.SetString(ShoppingCart.CartSessionKey, UserName);
+        }
 
         public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
         {
@@ -76,6 +98,7 @@ namespace Portfolio_Elvis.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
+                    MigrateShoppingCart(Input.Email); //Calls migrate shopping cart to store and transfer users shopping info
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

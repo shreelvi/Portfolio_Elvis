@@ -4,11 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Portfolio_Elvis.Models.MusicStore;
 
 namespace Portfolio_Elvis.Areas.Identity.Pages.Account
 {
@@ -19,6 +21,26 @@ namespace Portfolio_Elvis.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly MusicStoreContext _context;
+
+
+        /// <summary>
+        ///  maintain users shopping cart information between visits, so we
+        ///  will need to associate the shopping cart information with a user 
+        ///  when they complete registration or login
+        ///  this method is used for that
+        /// </summary>
+        /// <param name="UserName"></param>
+        private void MigrateShoppingCart(string UserName)
+        {
+            ShoppingCart cart = new ShoppingCart(_context);
+
+            // Associate shopping cart items with logged-in user
+            cart.GetCart(this.HttpContext);
+
+            cart.MigrateCart(UserName);
+            HttpContext.Session.SetString(ShoppingCart.CartSessionKey, UserName);
+        }
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -70,6 +92,7 @@ namespace Portfolio_Elvis.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    MigrateShoppingCart(Input.Email); 
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
