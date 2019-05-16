@@ -40,10 +40,11 @@ namespace Portfolio_Elvis.Areas.Identity.Pages.Account
             HttpContext.Session.SetString(ShoppingCart.CartSessionKey, UserName);
         }
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, MusicStoreContext context)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
         }
 
         [BindProperty]

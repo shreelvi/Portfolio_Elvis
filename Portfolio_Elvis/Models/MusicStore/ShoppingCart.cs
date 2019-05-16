@@ -198,6 +198,7 @@ namespace Portfolio_Elvis.Models.MusicStore
         // be associated with their username
         public void MigrateCart(string userName)
         {
+
             var shoppingCart = _context.Carts.Where(c => c.CartId == ShoppingCartId);
             foreach (Cart item in shoppingCart)
             {

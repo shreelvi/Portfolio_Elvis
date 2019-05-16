@@ -37,7 +37,7 @@ namespace Portfolio_Elvis.Controllers.MusicStore
         // POST: /Checkout/AddressAndPayment
         // Validate the input and process the order
         [HttpPost]
-        public ActionResult AddressAndPayment(FormCollection values)
+        public ActionResult AddressAndPayment(IFormCollection values)
         {
             var order = new Order();
             TryUpdateModelAsync(order);
