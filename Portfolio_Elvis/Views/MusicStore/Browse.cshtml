@@ -3,13 +3,25 @@
     ViewData["Title"] = "Browse";
     Layout = "~/Views/Shared/_LayoutMusicStore.cshtml";
 }
-<h2>Browsing Genre: @Model.Name</h2>
-<ul>
-    @foreach (var album in Model.Albums)
-    {
-    <li>
-        @Html.ActionLink(album.Title,
-        "Details", new { id = album.AlbumId })
-    </li>
+<style>
+    #main {
+        overflow: hidden;
+        padding: 0 0 15px 10px;
+        float: none;
     }
-</ul>
+</style>
+
+<div class="genre">
+    <h3><em>@Model.Name</em> Albums</h3>
+    <ul id="album-list">
+        @foreach (var album in Model.Albums)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = album.AlbumId })">
+                    <img alt="@album.Title" src="@album.AlbumArtUrl" style="width:120px; height:80px"/>&nbsp;
+                    <span>@album.Title</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
